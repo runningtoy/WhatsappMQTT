@@ -61,6 +61,8 @@ services:
 
 ### run (details see yowsup)
 ```
+docker-compose build
+
 docker -D run -v /yowsup:/root/.config/yowsup/ yowsup registration --requestcode sms --config-phone YOURPHONENUMBER --config-cc 49 --config-mcc 262 --config-mnc 2
 docker -D run -v /yowsup:/root/.config/yowsup/ yowsup registration --register XXXXXX --config-phone YOURPHONENUMBER --config-cc 49 --config-mcc 262 --config-mnc 2
 
