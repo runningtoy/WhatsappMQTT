@@ -5,7 +5,18 @@ WhatsappMQTT is a python program running in docker that connects to a mqtt serve
 ## Installation
 setup `yowsup`  profile
 
-create `Dockerfile`
+### You need the MD5 and Version of the *.apk: [Details->](https://iamjagjeetubhi.wordpress.com/2017/09/21/how-to-use-yowsup-the-python-whatsapp-library-in-ubuntu/)
+
+download `WhatsApp.apk` from [here](https://www.whatsapp.com/android/)  
+then: 
+```
+wget https://github.com/mgp25/classesMD5-64/blob/master/dexMD5.py
+pip install pyaxmlparser
+python dexMD5.py WhatsApp.apk
+```
+
+
+### create `Dockerfile`
 
 ```
 FROM python:3.6.8
@@ -23,6 +34,7 @@ RUN apt install -y git
 WORKDIR /app
 RUN git clone -b Desarrollo https://github.com/Rodrigosolari/yowsup.git .
 
+#uncomment and change following lines if needed
 #RUN sed -i 's/_MD5_CLASSES = "[^"]*"/_MD5_CLASSES = "Qc0kUxteJdDJSpeLPeHMKQ=="/g' /app/yowsup/env/env_android.py
 #RUN sed -i 's/_VERSION = "[^"]*"/_VERSION = "2.22.23.84"/g' /app/yowsup/env/env_android.py
 
@@ -33,16 +45,7 @@ RUN pwd
 ENTRYPOINT ["/app/yowsup-cli"]
 ```
 
-## how to get the MD5: [link->](https://iamjagjeetubhi.wordpress.com/2017/09/21/how-to-use-yowsup-the-python-whatsapp-library-in-ubuntu/)
-
-download WhatsAPP APK from [here](https://www.whatsapp.com/android/)
-```
-wget https://github.com/mgp25/classesMD5-64/blob/master/dexMD5.py
-pip install pyaxmlparser
-python dexMD5.py WhatsApp.apk
-```
-
-create `docker-compose.yml`
+### create `docker-compose.yml`
 ```
 version: '3.4'
 
@@ -56,7 +59,7 @@ services:
       - 5678:5678
 ```
 
-run (details see yowsup)
+### run (details see yowsup)
 ```
 docker -D run -v /yowsup:/root/.config/yowsup/ yowsup registration --requestcode sms --config-phone YOURPHONENUMBER --config-cc 49 --config-mcc 262 --config-mnc 2
 docker -D run -v /yowsup:/root/.config/yowsup/ yowsup registration --register XXXXXX --config-phone YOURPHONENUMBER --config-cc 49 --config-mcc 262 --config-mnc 2
@@ -64,14 +67,12 @@ docker -D run -v /yowsup:/root/.config/yowsup/ yowsup registration --register XX
 ```
 
 
-
+## RUN WhatsappMQTT
 clone this repo & edit `config.py` then run 
 ```
 docker-compose build
 docker-compose up -d
 ```
-
-## MQTT interface
 
 ### Sending messages
 To send messages, publish to `whatsapp/textmessage`:
