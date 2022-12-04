@@ -16,6 +16,7 @@ WORKDIR /usr/src/app/waserver
 
 RUN git clone -b Desarrollo https://github.com/Rodrigosolari/yowsup.git .
 
+#uncomment and change following lines if needed
 #RUN sed -i 's/_MD5_CLASSES = "[^"]*"/_MD5_CLASSES = "YlajJPPGUUP1Ptcic2XKNA=="/g'  /usr/src/app/waserver/yowsup/env/env_android.py
 #RUN sed -i 's/_VERSION = "[^"]*"/_VERSION = "2.18.105"/g'  /usr/src/app/waserver/yowsup/env/env_android.py
 
