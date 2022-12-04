@@ -59,7 +59,7 @@ services:
       - 5678:5678
 ```
 
-### run (details see yowsup)
+### run (details see [https://github.com/tgalal/yowsup](https://github.com/tgalal/yowsup))
 ```
 docker-compose build
 
