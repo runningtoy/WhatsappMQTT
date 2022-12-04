@@ -33,6 +33,15 @@ RUN pwd
 ENTRYPOINT ["/app/yowsup-cli"]
 ```
 
+## how to get the MD5: [link->](https://iamjagjeetubhi.wordpress.com/2017/09/21/how-to-use-yowsup-the-python-whatsapp-library-in-ubuntu/)
+
+download WhatsAPP APK from [here](https://www.whatsapp.com/android/)
+```
+wget https://github.com/mgp25/classesMD5-64/blob/master/dexMD5.py
+pip install pyaxmlparser
+python dexMD5.py WhatsApp.apk
+```
+
 create `docker-compose.yml`
 ```
 version: '3.4'
