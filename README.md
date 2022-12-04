@@ -22,7 +22,10 @@ ENV PYTHONUNBUFFERED=1
 RUN apt install -y git
 WORKDIR /app
 RUN git clone -b Desarrollo https://github.com/Rodrigosolari/yowsup.git .
-#RUN git clone https://github.com/runningtoy/yowsup.git .
+
+#RUN sed -i 's/_MD5_CLASSES = "[^"]*"/_MD5_CLASSES = "YlajJPPGUUP1Ptcic2XKNA=="/g' /app/yowsup/env/env_android.py
+#RUN sed -i 's/_VERSION = "[^"]*"/_VERSION = "2.18.105"/g' /app/yowsup/env/env_android.py
+
 RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 RUN python -m pip install debugpy -t /tmp
