@@ -25,18 +25,6 @@ from Crypto.Cipher import AES
 import hashlib
 
 
-# CREDENTIALS = ("49722360368", "bO6GnxXW8iPSGYoFGhjLVQE0dFE=")
-# CREDENTIALS = ("4915204295777", "IcQWRVBd7l9s7F8ZG+qBkkb1/CU=")
-#def main():
-    
-#    config_manager = ConfigManager()
-#    profile = YowProfile("4915223442934")
-
- #   stack = YowsupSendStack(profile, [(['491776111183', 'message_text'])],)
- #   stack.start()
-    #if 'noconn' in sys.argv:
- #   sys.exit(0)
-
 def on_connect(mqttc, obj, flags, rc):
     print("rc: " + str(rc))
 
@@ -90,7 +78,7 @@ def on_message(mqttc, obj, msg):
         #stack = sendmediafile(profile, [([payload["phone"], payload["image"], image])])
         print("File exitst?: %s" % filename)
         print(os.path.exists(filename))
-        stack = YowsupSendStack(profile, [("491776111183", filename, "image")],"image")
+        stack = YowsupSendStack(profile, [("491xxxxxxxxxx", filename, "image")],"image")
         
         #stack = sendmedia.sendmediafile(credentials, [([self.args["media"][0], self.args["media"][1], self.args["media"][2]])])
         #arg[1] = phone number.
