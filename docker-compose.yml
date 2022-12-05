@@ -5,7 +5,7 @@ services:
     image: whatsappmqtt
     restart: always
     volumes:
-      - /yowsup:/root/.config/yowsup/
+      - /sharedfolders/NCData/yowsup:/root/.config/yowsup/
     build:
       context: .
       dockerfile: ./Dockerfile
